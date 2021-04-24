@@ -1,0 +1,306 @@
+1  sudo yum install docker -y
+    2  sudo systemctl status docker
+    3  sudo systemctl start docker
+    4  sudo systemctl status docker
+    5  sudo systemctl enable docker
+    6  docker ps
+    7  whoami
+    8  sudo docker ps
+    9  sudo usermod -aG docker ec2-user
+   10  sudo cat /etc/group
+   11  docker ps
+   12  docker ps -a
+   13  docker pull centos
+   14  docker images
+   15  docker run centos:latest  ls -ltr /
+   16  docker ps
+   17  docker ps -a
+   18  sudo systemctl status docker
+   19  docker ps
+   20  docker ps -a
+   21  docker run -it centos:latest bash
+   22  docker ps
+   23  docker ps -a
+   24  docker run -it centos:latest bash
+   25  docker ps
+   26  docker exec -it 4464b740b292 bash
+   27  docker ps
+   28  docker exec -it 4464b740b292 bash
+   29  docker ps
+   30  docker kill 4464b740b292
+   31  docker ps
+   32  docker ps -a
+   33  ls
+   34  echo hi
+   35  echo hi > /tmp/abc
+   36  cat /tmp/abc 
+   37  echo hi > /dev/null
+   38  cat /dev/null
+   39  tail -f /dev/null
+   40  docker run -d centos tail -f /dev/null
+   41  docker ps
+   42  docker exec -it df77548fdb31 bash
+   43  docker ps
+   44  docker kill df77548fdb31
+   45  docker ps
+   46  docker ps -a
+   47  docker rm df77548fdb31
+   48  docker ps -a
+   49  docker rm 4464b740b292 8b79eee48955 7935bcd5bec7
+   50  docker ps -a
+   51  docker run --rm -d centos tail -f /dev/null
+   52  docker ps -a
+   53  docker kill 90df73bcb489
+   54  docker ps -a
+   55  docker run -d training/webapp python app.py
+   56  docker p
+   57  docker ps
+   58  docker exec -it 935f6bcbca5f bash
+   59  docker ps
+   60  docker kill 935f6bcbca5f
+   61  docker ps
+   62  docker run --rm -p 8080:5000 -d training/webapp python app.py
+   63  docker ps
+   64  docker kill d6161d3d04d3
+   65  docker ps -a
+   66  docker rm 935f6bcbca5f
+   67  docker ps -a
+   68  docker run -it centos bash
+   69  docker ps
+   70  docker ps -a
+   71  docker rm b7073c5b560c 82abdbd1dc81
+   72  docker ps -a
+   73  docker run --rm -it centos bash
+   74  docker ps -a
+   75  docker volumes
+   76  docker volume
+   77  docker volume ls
+   78  docker create -v /opt --name mydata centos
+   79  docker volume
+   80  docker volume ls
+   81  docker run --rm -it --volumes-from mydata centos bash
+   82  docker ps
+   83  docker ps -a
+   84  docker run --rm -it --volumes-from mydata centos bash
+   85  docker ps -a
+   86  sudo find / -name mydata
+   87  docker ps
+   88  docker run -it centos:latest bash
+   89  docker ps
+   90  docker commit 323a688aacab anudeep:git
+   91  docker images
+   92  docker run -it anudeep:git bash
+   93  docker images
+   94  mkdir git-image
+   95  cd git-image/
+   96  vi Dockerfile
+   97  cat Dockerfile 
+   98  docker build -t abc:git .  
+   99  docker images
+  100  vi Dockerfile 
+  101  docker build -t abc:git1 .  
+  102  docker run -it --rm abc:git1 bash
+  103  cd ./
+  104  cd ../
+  105  git
+  106  sudo yum install git -y
+  107  git clone https://github.com/docker-training/webapp.git
+  108  ls -ltr
+  109  cd webapp/
+  110  ls -ltr
+  111  ls -ltr webapp
+  112  cat webapp/app.py 
+  113  ls -ltr
+  114  vi Dockerfile 
+  115  ls -ltr
+  116  docker build -t myapp:latest .
+  117  docker images
+  118  docker login
+  119  docker images
+  120  docker tag myapp:latest devopsanudeep/myapp:latest
+  121  docker images
+  122  docker push devopsanudeep/myapp:latest
+  123  history 
+  124  docker run -it centos:latest bash
+  125  docker ps
+  126  docker exec -it 196756d71b95 bash
+  127  docker ps
+  128  docker kill 196756d71b95
+  129  docker ps
+  130  docker ps -a
+  131  docker rm 196756d71b95 4b971b74225b 323a688aacab
+  132  docker ps -a
+  133  docker rm 2d4ff0c8b85a
+  134  docker ps -a
+  135  docker run centos ls -ltr
+  136  docker ps -a
+  137  docker run --rm centos ls -ltr
+  138  docker ps -a
+  139  docker rm bec820fd4d0f
+  140  docker ps -a
+  141  docker run --rm centos ls -ltr
+  142  docker ps -a
+  143  tail -f /dev/null
+  144  docker run -d centos tail -f /dev/null
+  145  docker ps
+  146  docker 954853a85ce2
+  147  docker kill 954853a85ce2
+  148  docker rm 954853a85ce2
+  149  docker run -d --rm centos tail -f /dev/null
+  150  docker ps
+  151  docker exec -it 52edf619d4f7 sh
+  152  docker ps
+  153  docker kill 52edf619d4f7
+  154  docker ps -a
+  155  docker run -it --rm centos bash
+  156  docker ps -a
+  157  docker volumes
+  158  docker volume
+  159  docker volume ls
+  160  docker rm e3f8507cee8dd0490539bf3ec97e096b2f2d5c2f38b555b93215c3613e568e7b
+  161  docker volume rm e3f8507cee8dd0490539bf3ec97e096b2f2d5c2f38b555b93215c3613e568e7b
+  162  docker volume ls
+  163  docker create -v /opt --name mydata centos
+  164  docker volume ls
+  165  docker run -it --rm --volumes-from mydata centos bash
+  166  docker volume ls
+  167  docker volume create webapp
+  168  docker volume ls
+  169  docker create -v /opt mydataq centos
+  170  docker create mydata1 -v /opt --name mydata1 centos
+  171  docker create mydata1 -v /app --name mydata1 centos
+  172  docker create mydata2 -v /app --name mydata2 centos
+  173  docker ps 
+  174  docker ps -a
+  175  docker volume ls
+  176  docker volume rm webapp 21acd8bc16f9aff85cea66cc7516d802df022bea6d9a9a5a429c299117bf068e
+  177  docker volume rm 21acd8bc16f9aff85cea66cc7516d802df022bea6d9a9a5a429c299117bf068e
+  178  docker ps -a
+  179  docker rm a5f3a62ae66f
+  180  docker volume ls
+  181  docker volume rm 21acd8bc16f9aff85cea66cc7516d802df022bea6d9a9a5a429c299117bf068e
+  182  docker volume ls
+  183  docker volume create myapp
+  184  docker volume ls
+  185  docker create -v /opt --name mydata centos
+  186  docker volume ls
+  187  docker ps -a
+  188  docker run -it --rm --volume-from mydata centos bash
+  189  docker run -it --rm --volumes-from mydata centos bash
+  190  docker ps -a
+  191  docker volume ls
+  192  docker run -it --rm -v myapp:/myapp centos bash
+  193  docker ps -a
+  194  docker run -it -v myapp:/myapp centos bash
+  195  docker ps -a
+  196  docker run -d training/webapp:latest 
+  197  docker ps
+  198  docker exec -it be11e64a3fc4 bash
+  199  docker ps 
+  200  docker kill be11e64a3fc4
+  201  docker rm be11e64a3fc4
+  202  docker ps
+  203  docker run --rm -d -p 8080:5000 training/webapp:latest 
+  204  docker ps
+  205  curl http://172.31.80.67:8080
+  206  docker ps
+  207  docker logs 5c0ff4f1f773
+  208  docker logs 5c0ff4f1f773 -f
+  209  docker ps
+  210  docker kill 5c0ff4f1f773
+  211  docker ps
+  212  docker run -it ubuntu bash
+  213  docker ps
+  214  docker commit 8b91f83fa0a4 abcpro:v1
+  215  docker images
+  216  docker run -it --rm abcpro:v1 sh
+  217  docker ps 
+  218  docker kill 8b91f83fa0a4
+  219  docker ps -a
+  220  mkdir myapp
+  221  cd myapp/
+  222  ls -ltr
+  223  vi Dockerfile
+  224  ls -ltr
+  225  mkdir mycode
+  226  cd mycode/
+  227  ls -ltr 
+  228  vi main.py
+  229  python main.py
+  230  ls -ltr
+  231  cd ../
+  232  ls -ltr
+  233  ls -ltr mycode/
+  234  vi Dockerfile
+  235  docker run -it --rm centos bash
+  236  ls -ltr mycode/
+  237  vi Dockerfile 
+  238  ls -ltr
+  239  cat Dockerfile 
+  240  docker build -t myapp:v1 .
+  241  docker images 
+  242  docker inspect 4d60410901ef
+  243  docker images
+  244  docker inspect 7e0aa2d69a15
+  245  docker images
+  246  ls -ltr
+  247  cat Dockerfile
+  248  ls -ltr
+  249  docker run -d --rm  myapp:v1 
+  250  docker ps 
+  251  docker run -d  myapp:v1 
+  252  docker ps -a
+  253  docker run -d  myapp:v1 bash
+  254  docker run -it  myapp:v1 bash
+  255  ls -ltr
+  256  vi Dockerfile 
+  257  docker images
+  258  docker inspect 4d60410901ef
+  259  docker build -t myapp:v2 .
+  260  docker inspectecffd5398147
+  261  docker inspect ecffd5398147
+  262  vi mycode/main.py 
+  263  docker build -t myapp:v2 .
+  264  docker inspect 222f7f38ac07
+  265  cat Dockerfile 
+  266  docker run -d --rm myapp:v2 
+  267  docker ps
+  268  ls -ltr
+  269  cat mycode/main.py 
+  270  cd ../
+  271  git
+  272  git clone https://github.com/docker-training/webapp.git
+  273  ls -ltr
+  274  rm -rf webapp
+  275  git clone https://github.com/docker-training/webapp.git
+  276  ls -ltr
+  277  cd webapp/
+  278  ls -ltr
+  279  cat Docu
+  280  ls -ltr webapp
+  281  cat webapp/requirements.txt 
+  282  docker build -t anudeep:v1 .
+  283  ls -ltr
+  284  docker imagas
+  285  docker images
+  286  docker login
+  287  vi /home/ec2-user/.docker/config.json
+  288  mv /home/ec2-user/.docker/config.json /tmp/
+  289  docker login
+  290  docker images
+  291  docker tag myapp:v2  devopsapr2021/myapp:v2
+  292  docker images
+  293  docker push devopsapr2021/myapp:v2
+  294  docker tag myapp:v2  devopsapr2021/myapp:latest
+  295  docker push devopsapr2021/myapp
+  296  cd ../myapp/
+  297  docker build -t devopsapr2021/myapp:v3
+  298  docker build -t devopsapr2021/myapp:v3 .
+  299  docker images
+  300  ls -ltr
+  301  vi mycode/main.py 
+  302  docker build -t devopsapr2021/myapp:v3 .
+  303  docker images
+  304  docker volumes
+  305  docker volume ls
+  306  history 
